@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get list of open PRs
         id: get-open-prs
-        uses: caring/get-list-of-open-prs@v0.1
+        uses: caring/gh-get-list-of-open-prs@v0.1
 ```
 
 The action will create a output you can call using **steps.get-open-prs.outputs.openPRs**  
