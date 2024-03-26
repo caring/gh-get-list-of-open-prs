@@ -1,0 +1,20 @@
+name: get-list-of-open-prs
+description: Get list of open PRs in a repository
+author: Devops Team
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Get list of open PRs
+      id: get-open-prs
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { data: pullRequests } = await github.rest.pulls.list({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open'
+          });
+          const openPRs = pullRequests.map(pr => pr.number);
+          console.log(`Open PRs: ${openPRs.join(', ')}`);
+          core.setOutput('openPRs', openPRs.join(','));
