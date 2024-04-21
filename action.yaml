@@ -20,4 +20,4 @@ runs:
           const openPRs = pullRequests.map(pr => pr.number);
           console.log(`Open PRs: ${openPRs.join(', ')}`);
           core.setOutput('openPRs', openPRs.join(','));
-          echo "${openPRs.join(', ')}" >> $GITHUB_OUTPUT
+          echo "openPRs=${openPRs.join(', ')}" >> $GITHUB_OUTPUT
