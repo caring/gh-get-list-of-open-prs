@@ -9,6 +9,7 @@ runs:
       id: get-open-prs
       uses: actions/github-script@v7
       with:
+        result-encoding: string
         script: |
           const { data: pullRequests } = await github.rest.pulls.list({
             owner: context.repo.owner,
@@ -17,4 +18,4 @@ runs:
           });
           const openPRs = pullRequests.map(pr => pr.number);
           console.log(`Open PRs: ${openPRs.join(', ')}`);
-          core.setOutput('openPRs', `${openPRs.join(', ')}`);
+          return ${openPRs.join(', ')}
