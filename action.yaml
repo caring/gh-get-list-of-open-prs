@@ -18,4 +18,4 @@ runs:
           });
           const openPRs = pullRequests.map(pr => pr.number);
           console.log(`Open PRs: ${openPRs.join(', ')}`);
-          return ${openPRs.join(', ')}
+          return `${openPRs.join(', ')}`
