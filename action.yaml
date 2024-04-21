@@ -17,4 +17,3 @@ runs:
           });
           const openPRs = pullRequests.map(pr => pr.number);
           console.log(`Open PRs: ${openPRs.join(', ')}`);
-          echo "openPRs=teste" >> $GITHUB_OUTPUT
